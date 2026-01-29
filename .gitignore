@@ -1,5 +1,15 @@
-# Rust build artifacts
+# Rust build artifacts (legacy)
 /target/
+Cargo.lock
+
+# Node.js / npm
+node_modules/
+package-lock.json
+
+# VitePress
+docs/.vitepress/dist
+docs/.vitepress/cache
+.temp
 
 # Generated static site (built by GitHub Actions)
 /dist/

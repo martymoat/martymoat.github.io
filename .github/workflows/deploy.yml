@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: Deploy VitePress to GitHub Pages
 
 on:
   push:
@@ -20,19 +20,20 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      
-      - name: Install Rust
-        uses: actions-rs/toolchain@v1
         with:
-          toolchain: stable
-          profile: minimal
+          fetch-depth: 0  # VitePress needs git history for lastUpdated
       
-      - name: Build static site
-        run: |
-          cargo build --release
-          mkdir -p dist
-          # Extract HTML content and save as static files
-          cargo run --release --bin generate-static
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Build with VitePress
+        run: npm run docs:build
       
       - name: Setup Pages
         uses: actions/configure-pages@v4
@@ -40,7 +41,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist'
+          path: docs/.vitepress/dist
   
   deploy:
     environment:
