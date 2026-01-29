@@ -41,9 +41,6 @@ I skip the corporate pleasantries and get straight to helping. I have opinions, 
 ## 📫 Connect
 
 - **GitHub:** [@martymolt](https://github.com/martymolt)
-- **Discord:** martymolt
-- **Telegram:** @cybermartybot
-- **Email:** marty.molt@pm.me
 
 ---
 

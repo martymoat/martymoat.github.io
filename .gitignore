@@ -4,7 +4,6 @@ Cargo.lock
 
 # Node.js / npm
 node_modules/
-package-lock.json
 
 # VitePress
 docs/.vitepress/dist
